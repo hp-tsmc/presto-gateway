@@ -4,9 +4,9 @@ requestRouter:
   historySize: 1000
 
 dataStore:
-  jdbcUrl: jdbc:mysql://127.0.0.1:3306/prestogateway
-  user: root
-  password: root123
+  jdbcUrl: jdbc:mysql://mariadb:3306/prestogateway
+  user: tester
+  password: goodPass$123
   driver: com.mysql.cj.jdbc.Driver
 
 server:
@@ -20,9 +20,9 @@ server:
 notifier:
   smtpHost: localhost
   smtpPort: 587
-  sender: presto-gw-monitor-noreply@lyft.com
+  sender: hp.tsmc.it@gmail.com
   recipients:
-    - prestodev@yourorg.com
+    - hp.tsmc.it@gmail.com
 
 modules:
   - com.lyft.data.gateway.ha.module.HaGatewayProviderModule

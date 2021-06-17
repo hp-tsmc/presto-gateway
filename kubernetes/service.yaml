@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pg
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    name: pg-lb
+    targetPort: 8080
+  - port: 8090
+    name: pg-app
+    targetPort: 8090
+  - port: 8091
+    name: pg-admin
+    targetPort: 8091
+  selector:
+    app: pg

@@ -34,7 +34,7 @@ Edit the [config file](/gateway-ha/gateway-ha-config.yml) and update the mysql d
 
 ```
 cd gateway-ha/target/
-java -jar gateway-ha-{{VERSION}}-jar-with-dependencies.jar server ../gateway-ha-config.yml
+java -jar gateway-ha-1.8.6-jar-with-dependencies.jar server ../gateway-ha-config.yml
 ```
 Now you can access load balanced presto at localhost:8080 port. We will refer to this as `prestogateway.lyft.com`
 
@@ -43,18 +43,10 @@ Now you can access load balanced presto at localhost:8080 port. We will refer to
 ### Add or update a backend
 ```$xslt
 curl -X POST http://localhost:8080/entity?entityType=GATEWAY_BACKEND \
- -d '{  "name": "presto1", \
-        "proxyTo": "http://presto1.lyft.com",\
-        "active": true, \
-        "routingGroup": "adhoc" \
-    }'
+ -d '{  "name": "trino-1", "proxyTo": "http://trino-1:8080","active": true, "routingGroup": "adhoc" }'
 
 curl -X POST http://localhost:8080/entity?entityType=GATEWAY_BACKEND \
- -d '{  "name": "presto2", \
-        "proxyTo": "http://presto2.lyft.com",\
-        "active": true, \
-        "routingGroup": "adhoc" \
-    }'
+ -d '{  "name": "trino-2", "proxyTo": "http://trino-2:8080","active": true, "routingGroup": "adhoc" }'
 
 ```
 If the backend URL is different from the `proxyTo` URL (for example if they are internal vs. external hostnames). You can use the optional `externalUrl` field to override the link in the Active Backends page.
@@ -100,12 +92,12 @@ curl -X GET http://localhost:8080/entity/GATEWAY_BACKEND
 ### Delete a backend from the gateway
 
 ```$xslt
-curl -X POST -d "presto3" http://localhost:8080/gateway/backend/modify/delete
+curl -X POST -d "trino-1" http://localhost:8080/gateway/backend/modify/delete
 ```
 
 ### Deactivate a backend
 ```$xslt
-curl -X POST http://localhost:8080/gateway/backend/deactivate/presto2
+curl -X POST http://localhost:8080/gateway/backend/deactivate/trino-1
 ```
 
 ### Get all active backend behind the Gateway

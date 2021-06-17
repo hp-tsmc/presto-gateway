@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pg
+spec:
+  selector:
+    matchLabels:
+      app: pg
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: pg
+    spec:
+      containers:
+      - name: pg
+        image: docker.io/hpdevelop/pg:0.1
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "1G"
+            cpu: 500m
+          limits:
+            memory: "1G"
+            cpu: 500m
+        imagePullPolicy: Never
+
+
