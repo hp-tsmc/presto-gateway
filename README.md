@@ -290,3 +290,38 @@ References :sparkles:
 
 [Presto-gateway at Pinterest](https://medium.com/pinterest-engineering/presto-at-pinterest-a8bda7515e52)
 
+
+```
+GET     / (com.lyft.data.gateway.ha.resource.GatewayViewResource)
+GET     /api/activeBackends (com.lyft.data.gateway.ha.resource.GatewayViewResource)
+GET     /api/queryHistory (com.lyft.data.gateway.ha.resource.GatewayViewResource)
+GET     /api/queryHistoryDistribution (com.lyft.data.gateway.ha.resource.GatewayViewResource)
+GET     /entity (com.lyft.data.gateway.ha.resource.EntityEditorResource)
+POST    /entity (com.lyft.data.gateway.ha.resource.EntityEditorResource)
+GET     /entity/{entityType} (com.lyft.data.gateway.ha.resource.EntityEditorResource)
+GET     /gateway (com.lyft.data.gateway.ha.resource.GatewayResource)
+POST    /gateway/backend/activate/{name} (com.lyft.data.gateway.ha.resource.GatewayResource)
+GET     /gateway/backend/active (com.lyft.data.gateway.ha.resource.GatewayResource)
+GET     /gateway/backend/all (com.lyft.data.gateway.ha.resource.GatewayResource)
+POST    /gateway/backend/deactivate/{name} (com.lyft.data.gateway.ha.resource.GatewayResource)
+POST    /gateway/backend/modify/add (com.lyft.data.gateway.ha.resource.HaGatewayResource)
+POST    /gateway/backend/modify/delete (com.lyft.data.gateway.ha.resource.HaGatewayResource)
+POST    /gateway/backend/modify/update (com.lyft.data.gateway.ha.resource.HaGatewayResource)
+POST    /presto/globalproperty/create (com.lyft.data.gateway.ha.resource.PrestoResource)
+POST    /presto/globalproperty/delete/{name} (com.lyft.data.gateway.ha.resource.PrestoResource)
+GET     /presto/globalproperty/read (com.lyft.data.gateway.ha.resource.PrestoResource)
+GET     /presto/globalproperty/read/{name} (com.lyft.data.gateway.ha.resource.PrestoResource)
+POST    /presto/globalproperty/update (com.lyft.data.gateway.ha.resource.PrestoResource)
+POST    /presto/resourcegroup/create (com.lyft.data.gateway.ha.resource.PrestoResource)
+POST    /presto/resourcegroup/delete/{resourceGroupId} (com.lyft.data.gateway.ha.resource.PrestoResource)
+GET     /presto/resourcegroup/read (com.lyft.data.gateway.ha.resource.PrestoResource)
+GET     /presto/resourcegroup/read/{resourceGroupId} (com.lyft.data.gateway.ha.resource.PrestoResource)
+POST    /presto/resourcegroup/update (com.lyft.data.gateway.ha.resource.PrestoResource)
+POST    /presto/selector/create (com.lyft.data.gateway.ha.resource.PrestoResource)
+POST    /presto/selector/delete/ (com.lyft.data.gateway.ha.resource.PrestoResource)
+GET     /presto/selector/read (com.lyft.data.gateway.ha.resource.PrestoResource)
+GET     /presto/selector/read/{resourceGroupId} (com.lyft.data.gateway.ha.resource.PrestoResource)
+POST    /presto/selector/update (com.lyft.data.gateway.ha.resource.PrestoResource)
+GET     /viewgateway (com.lyft.data.gateway.ha.resource.GatewayViewResource)
+
+```
